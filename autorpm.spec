@@ -3,7 +3,7 @@ Summary:	RPM Auto-Installer or FTP Mirrorer
 Summary(pl):	Auto instalator i ftp mirror pakietow rpm
 Name:		autorpm
 Version:	1.9.8.1
-Release:	1
+Release:	3
 Copyright:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
