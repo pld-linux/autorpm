@@ -6,8 +6,6 @@ Version:	1.9.9
 Release:	2
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
 Source1:	%{name}-pld-updates.conf
 Source2:	%{name}-pld-updates
