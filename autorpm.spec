@@ -16,6 +16,7 @@ Requires:	whiptail
 Requires:	/bin/rpm
 Requires:	/usr/bin/whiptail
 Requires:	/bin/mail
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
