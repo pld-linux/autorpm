@@ -1,38 +1,29 @@
-diff -urN autorpm-1.9.9/autorpm.conf autorpm-1.9.9.pld/autorpm.conf
---- autorpm-1.9.9/autorpm.conf	Thu Apr  5 16:14:36 2001
-+++ autorpm-1.9.9.pld/autorpm.conf	Sun Aug  5 17:28:13 2001
-@@ -14,7 +14,7 @@
+diff -urN autorpm-3.3.2.orig/autorpm.cron autorpm-3.3.2/autorpm.cron
+--- autorpm-3.3.2.orig/autorpm.cron	2003-05-19 16:38:59.000000000 +0200
++++ autorpm-3.3.2/autorpm.cron	2004-07-04 16:08:48.000000000 +0200
+@@ -15,5 +15,5 @@
+ # looking for updates (backgrounds the process to avoid delaying
+ # other cron jobs)
+ export LC_ALL=C
+-/usr/sbin/autorpm --notty "auto --delay=7200" &
++#/usr/sbin/autorpm --notty "auto --delay=7200" &
+ 
+diff -urN autorpm-3.3.2.orig/autorpm.d/sample_configs/autorpm.conf-sample autorpm-3.3.2/autorpm.d/sample_configs/autorpm.conf-sample
+--- autorpm-3.3.2.orig/autorpm.d/sample_configs/autorpm.conf-sample	2004-04-05 01:02:30.000000000 +0200
++++ autorpm-3.3.2/autorpm.d/sample_configs/autorpm.conf-sample	2004-07-04 16:08:19.000000000 +0200
+@@ -27,12 +27,13 @@
  # This automatically determines the version of Red Hat Linux
- # You have... you can comment this out and definite it yourself
+ # You have... you can comment this out and define it yourself
  # if you want to
 -Eval_Var("RHVersion", "sed 's/\(Red Hat Linux \)\?release \([^ ]*\) (.*)/\2/' /etc/redhat-release");
 +#Eval_Var("RHVersion", "sed 's/\(Red Hat Linux \)\?release \([^ ]*\) (.*)/\2/' /etc/redhat-release");
- #Eval_Var("RHVersion", "6.1");
- 
- # This is whoever you want the report on what actually happened
-@@ -29,11 +29,13 @@
- # This tells AutoRPM that if a local package is installed and the
- # architecture is i386, it's okay to upgrade that with a package
- # that is an i586.  This is needed for Mandrake Linux.
--Replace_Arch ("i386", "i586");
-+#Replace_Arch ("i386", "i586");
+ #Set_Var("RHVersion", "6.1");
  
  # Look for official Red Hat updates
  # (won't automatically install anything unless you edit the file)
 -Config_File("/etc/autorpm.d/redhat-updates.conf");
 +#Config_File("/etc/autorpm.d/redhat-updates.conf");
-+
 +Config_File("/etc/autorpm.d/pld-updates.conf");
+ ########################## END Red Hat Linux #################################
  
- # Look for AutoRPM updates
- # (don't run by default)
-diff -urN autorpm-1.9.9/autorpm.cron autorpm-1.9.9.pld/autorpm.cron
---- autorpm-1.9.9/autorpm.cron	Fri Jun 18 18:49:48 1999
-+++ autorpm-1.9.9.pld/autorpm.cron	Sun Aug  5 17:36:30 2001
-@@ -13,5 +13,5 @@
- 
- # Start AutoRPM and tell it to wait up to 2 hours before actually
- # looking for updates
--/usr/sbin/autorpm --delay=7200
-+# /usr/sbin/autorpm --delay=7200
- 
+ ######################## BEGIN Fedora Linux #################################
