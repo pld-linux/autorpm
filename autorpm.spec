@@ -41,12 +41,12 @@ install -d $RPM_BUILD_ROOT/{etc/cron.daily,usr/{man/man{5,8},sbin},var/spool/aut
 install autorpm.pl $RPM_BUILD_ROOT/usr/sbin/autorpm
 install autorpm.conf $RPM_BUILD_ROOT/etc/autorpm.conf.sample
 
-install autorpm.conf.5 $RPM_BUILD_ROOT/usr/man/man5
-install autorpm.8 $RPM_BUILD_ROOT/usr/man/man8
+install autorpm.conf.5 $RPM_BUILD_ROOT%{_mandir}/man5
+install autorpm.8 $RPM_BUILD_ROOT%{_mandir}/man8
 
 ln -sf ../../usr/sbin/autorpm $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 	README CHANGES CREDITS TODO
 
 %clean
@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(600,root,root) %config(missingok) /etc/autorpm.conf.sample
 %attr(750,root,root) /usr/sbin/autorpm
 %attr(750,root,root) /etc/cron.daily/autorpm
-/usr/man/man[58]/*
+%{_mandir}/man[58]/*
 
 %changelog
 * Wed Jan 26 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
