@@ -7,6 +7,7 @@ Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
+# Source0-md5:	392469b46d834a03c0c99e939cb295c0
 Source1:	%{name}-pld-updates.conf
 Source2:	%{name}-pld-updates
 Patch0:		%{name}-config.patch
