@@ -2,12 +2,12 @@
 Summary:	RPM Auto-Installer or FTP Mirrorer
 Summary(pl):	Auto instalator i ftp mirror pakietow rpm
 Name:		autorpm
-Version:	1.9.9
-Release:	2
+Version:	3.3.2
+Release:	0.1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
-# Source0-md5:	392469b46d834a03c0c99e939cb295c0
+# Source0-md5:	c1c69f35c3655783f1071b5d855925f6
 Source1:	%{name}-pld-updates.conf
 Source2:	%{name}-pld-updates
 Patch0:		%{name}-config.patch
@@ -44,13 +44,13 @@ install -d $RPM_BUILD_ROOT{/etc/cron.daily,%{_mandir}/man{5,8},%{_sbindir}} \
 	$RPM_BUILD_ROOT{/var/spool/autorpm,%{_sysconfdir}/autorpm.d/pools} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/addons
 
-install autorpm.pl	$RPM_BUILD_ROOT%{_sbindir}/autorpm
-install autorpm.conf	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/autorpm.conf
+install autorpm.pl					$RPM_BUILD_ROOT%{_sbindir}/autorpm
+install autorpm.d/sample_configs/autorpm.conf-sample	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/autorpm.conf
 
-install autorpm.conf.5 	$RPM_BUILD_ROOT%{_mandir}/man5
-install autorpm.8 	$RPM_BUILD_ROOT%{_mandir}/man8
-install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pld-updates.conf
-install %{SOURCE2}	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pools/pld-updates
+install man/autorpm.conf.5 	$RPM_BUILD_ROOT%{_mandir}/man5
+install man/autorpm.8 		$RPM_BUILD_ROOT%{_mandir}/man8
+install %{SOURCE1}		$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pld-updates.conf
+install %{SOURCE2}		$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pools/pld-updates
 
 sed  -e "s=/bin/bash=/bin/sh=" autorpm.cron > $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 
@@ -59,7 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README CHANGES CREDITS TODO
+%doc docs/{README,CREDITS,queue.format} project/{CHANGES,TODO} autorpm.d/support/{tips,introduction.txt}
+%doc autorpm.d/sample_configs
 %{_mandir}/man[58]/*
 %defattr(640,root,root,750)
 %dir /var/spool/autorpm
