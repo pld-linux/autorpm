@@ -53,14 +53,12 @@ install %{SOURCE2}	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pools/pld-updates
 
 sed  -e "s=/bin/bash=/bin/sh=" autorpm.cron > $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 
-gzip -9nf README CHANGES CREDITS TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,CHANGES,CREDITS,TODO}.gz
+%doc README CHANGES CREDITS TODO
 %{_mandir}/man[58]/*
 %defattr(640,root,root,750)
 %dir /var/spool/autorpm
