@@ -12,7 +12,7 @@ URL:		http://www.kaybee.org/~kirk/html/linux.html
 Requires:	/bin/rpm
 Requires:	/usr/bin/whiptail
 Requires:	/bin/mail
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 AutoRPM is a program that can do any combination of the following: mirror
