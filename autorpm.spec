@@ -1,8 +1,8 @@
 Summary:	RPM Auto-Installer or FTP Mirrorer
 Summary(pl):	Auto instalator i ftp mirror pakietow rpm
 Name:		autorpm
-Version:	1.7.1
-Release:	1d
+Version:	1.8
+Release:	1
 Copyright:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
@@ -36,7 +36,8 @@ interakcyjnym gdzie posiada do¶æ przyjemny interfejs.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/cron.daily,usr/{man/man{5,8},sbin},var/spool/autorpm}
+install -d $RPM_BUILD_ROOT{/etc/cron.daily,%{_mandir}/man{5,8},%{_sbindir}} \
+	$RPM_BUILD_ROOT/var/spool/autorpm
 
 install autorpm.pl $RPM_BUILD_ROOT%{_sbindir}/autorpm
 install autorpm.conf $RPM_BUILD_ROOT/etc/autorpm.conf.sample
