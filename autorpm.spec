@@ -1,17 +1,16 @@
+%include	/usr/lib/rpm/macros.perl
 Summary:	RPM Auto-Installer or FTP Mirrorer
 Summary(pl):	Auto instalator i ftp mirror pakietow rpm
 Name:		autorpm
-Version:	1.8
+Version:	1.9.8.1
 Release:	1
 Copyright:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Source:		ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
 URL:		http://www.kaybee.org/~kirk/html/linux.html
-Requires:	rpm
-Requires:	dialog
-Requires:	libnet
-Requires:	mailx
+Requires:	/bin/rpm
+Requires:	/usr/bin/whiptail
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -37,15 +36,18 @@ interakcyjnym gdzie posiada do¶æ przyjemny interfejs.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/etc/cron.daily,%{_mandir}/man{5,8},%{_sbindir}} \
-	$RPM_BUILD_ROOT/var/spool/autorpm
+	$RPM_BUILD_ROOT{/var/spool/autorpm,/etc/autorpm.d/pools}
 
 install autorpm.pl $RPM_BUILD_ROOT%{_sbindir}/autorpm
-install autorpm.conf $RPM_BUILD_ROOT/etc/autorpm.conf.sample
+install autorpm.conf $RPM_BUILD_ROOT/etc/autorpm.d/autorpm.conf.sample
+touch $RPM_BUILD_ROOT/etc/autorpm.d/autorpm.conf
+install autorpm.d/* $RPM_BUILD_ROOT/etc/autorpm.d/
+install pools/* $RPM_BUILD_ROOT/etc/autorpm.d/pools/
 
 install autorpm.conf.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install autorpm.8 $RPM_BUILD_ROOT%{_mandir}/man8
 
-ln -sf ../..%{_sbindir}/autorpm $RPM_BUILD_ROOT/etc/cron.daily/autorpm
+sed  -e "s=/bin/bash=/bin/sh=" autorpm.cron > $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 	README CHANGES CREDITS TODO
@@ -56,8 +58,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {README,CHANGES,CREDITS,TODO}.gz
+%{_mandir}/man[58]/*
+%defattr(640,root,root,750)
 %dir /var/spool/autorpm
-%attr(600,root,root) %config(missingok) /etc/autorpm.conf.sample
+%dir /etc/autorpm.d
+%dir /etc/autorpm.d/pools
+%config(missingok) %verify(not mtime,md5,size) /etc/autorpm.d/autorpm.conf.sample
+%ghost /etc/autorpm.d/autorpm.conf
+%config(missingok) %verify(not mtime,md5,size) /etc/autorpm.d/*updates
+%config(missingok) %verify(not mtime,md5,size) /etc/autorpm.d/pools/*updates
+
 %attr(750,root,root) %{_sbindir}/autorpm
 %attr(750,root,root) /etc/cron.daily/autorpm
-%{_mandir}/man[58]/*
