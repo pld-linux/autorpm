@@ -47,7 +47,7 @@ ln -sf ../../usr/sbin/autorpm $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%attr(644, root, root, 755)
+%defattr(644, root, root, 755)
 %doc README CHANGES CREDITS TODO
 %dir /var/spool/autorpm
 %attr(600, root, root) %config(missingok) /etc/autorpm.conf.sample
