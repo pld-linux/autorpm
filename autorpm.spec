@@ -12,6 +12,7 @@ Source1:	%{name}-pld-updates.conf
 Source2:	%{name}-pld-updates
 Patch0:		%{name}-config.patch
 URL:		http://www.kaybee.org/~kirk/html/linux.html
+BuildRequires:	perl-base
 Requires:	whiptail
 Requires:	/bin/rpm
 Requires:	/usr/bin/whiptail
