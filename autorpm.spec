@@ -27,7 +27,7 @@ a very nice, menu-driven Interactive-Install mode.
 %description -l pl
 AutoRPM jest programem, który mo¿e wykonywaæ dowoln± kombinacjê
 nastêpuj±cych czynno¶ci: mirrorowanie pakietów rpm z podanego adresu
-serwea ftp, aktualizowanie bazy zainstalowanych pakietów wzglêdem
+serwera ftp, aktualizowanie bazy zainstalowanych pakietów wzglêdem
 zawarto¶ci serwera ftp lub katalogu lokalnego. Autorpm jest do¶æ ³atwo
 konfigurowalny i posiada do¶æ du¿e mo¿liwo¶ci. Mo¿na go u¿ywaæ w
 trybie wsadowym i interakcyjnym gdzie posiada do¶æ przyjemny
