@@ -9,6 +9,7 @@ Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
 URL:		http://www.kaybee.org/~kirk/html/linux.html
+Requires:	whiptail
 Requires:	/bin/rpm
 Requires:	/usr/bin/whiptail
 Requires:	/bin/mail
