@@ -5,8 +5,9 @@ Name:		autorpm
 Version:	1.9.8.4
 Release:	4
 License:	GPL
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
 URL:		http://www.kaybee.org/~kirk/html/linux.html
 Requires:	whiptail
