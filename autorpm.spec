@@ -3,12 +3,15 @@ Summary:	RPM Auto-Installer or FTP Mirrorer
 Summary(pl):	Auto instalator i ftp mirror pakietow rpm
 Name:		autorpm
 Version:	1.9.9
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
+Source1:	%{name}-pld-updates.conf
+Source2:	%{name}-pld-updates
+Patch0:		%{name}-config.patch
 URL:		http://www.kaybee.org/~kirk/html/linux.html
 Requires:	whiptail
 Requires:	/bin/rpm
@@ -34,6 +37,7 @@ interfejs.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 
@@ -43,13 +47,12 @@ install -d $RPM_BUILD_ROOT{/etc/cron.daily,%{_mandir}/man{5,8},%{_sbindir}} \
 	$RPM_BUILD_ROOT{/var/spool/autorpm,%{_sysconfdir}/autorpm.d/pools}
 
 install autorpm.pl	$RPM_BUILD_ROOT%{_sbindir}/autorpm
-install autorpm.conf	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/autorpm.conf.sample
-touch $RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/autorpm.conf
-install autorpm.d/* 	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/
-install pools/* 	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pools/
+install autorpm.conf	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/autorpm.conf
 
 install autorpm.conf.5 	$RPM_BUILD_ROOT%{_mandir}/man5
 install autorpm.8 	$RPM_BUILD_ROOT%{_mandir}/man8
+install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pld-updates.conf
+install %{SOURCE2}	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pools/pld-updates
 
 sed  -e "s=/bin/bash=/bin/sh=" autorpm.cron > $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 
@@ -67,10 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir /var/spool/autorpm
 %dir %{_sysconfdir}/autorpm.d
 %dir %{_sysconfdir}/autorpm.d/pools
-%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/autorpm.conf.sample
-%ghost %{_sysconfdir}/autorpm.d/autorpm.conf
-%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/*updates*
-%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/pools/*updates*
+%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/autorpm.conf
+%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/pld-updates.conf
+%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/pools/pld-updates
 
 %attr(750,root,root) %{_sbindir}/autorpm
 %attr(750,root,root) /etc/cron.daily/autorpm
