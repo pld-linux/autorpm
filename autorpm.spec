@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 - removed %postun,
 - added pl translation,
 - simplification in %install and %files,
-- added %attr and %defattr macros in %files (allow build package from
+- added %attr and %defattr macros in %files (allows build package from
   non-root account).
 
 * Sun Mar 08 1998 Kirk Bauer <kirk@kaybee.org>
