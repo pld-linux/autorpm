@@ -61,23 +61,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(750,root,root) %{_sbindir}/autorpm
 %attr(750,root,root) /etc/cron.daily/autorpm
 %{_mandir}/man[58]/*
-
-%changelog
-* Wed Jan 26 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.7.1-1d]
-- added gzipping man pages,
-- added bzipping2 %doc,
-
-* Wed Nov 13 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.6.1-2]
-- added -q %setup parameter,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- removed %postun,
-- added pl translation,
-- simplification in %install and %files,
-- added %attr and %defattr macros in %files (allows build package from
-  non-root account).
-
-* Sun Mar 08 1998 Kirk Bauer <kirk@kaybee.org>
-- initial release
