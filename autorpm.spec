@@ -44,7 +44,8 @@ interfejs.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/etc/cron.daily,%{_mandir}/man{5,8},%{_sbindir}} \
-	$RPM_BUILD_ROOT{/var/spool/autorpm,%{_sysconfdir}/autorpm.d/pools}
+	$RPM_BUILD_ROOT{/var/spool/autorpm,%{_sysconfdir}/autorpm.d/pools} \
+	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/addons
 
 install autorpm.pl	$RPM_BUILD_ROOT%{_sbindir}/autorpm
 install autorpm.conf	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/autorpm.conf
@@ -70,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir /var/spool/autorpm
 %dir %{_sysconfdir}/autorpm.d
 %dir %{_sysconfdir}/autorpm.d/pools
+%dir %{_sysconfdir}/autorpm.d/addons
 %config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/autorpm.conf
 %config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/pld-updates.conf
 %config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/pools/pld-updates
