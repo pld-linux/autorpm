@@ -5,6 +5,7 @@ Version:	1.7.1
 Release:	1d
 Copyright:	GPL
 Group:		Utilities/System
+Group(pl):	Narzêdzia/System
 Source:		ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
 URL:		http://www.kaybee.org/~kirk/html/linux.html
 Requires:	rpm
@@ -45,20 +46,20 @@ install autorpm.8 $RPM_BUILD_ROOT/usr/man/man8
 
 ln -sf ../../usr/sbin/autorpm $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/*
-bzip -9 README CHANGES CREDITS TODO
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/* \
+	README CHANGES CREDITS TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,CHANGES,CREDITS,TODO}.bz2
+%doc {README,CHANGES,CREDITS,TODO}.gz
 %dir /var/spool/autorpm
 %attr(600,root,root) %config(missingok) /etc/autorpm.conf.sample
 %attr(750,root,root) /usr/sbin/autorpm
-%attr(644,root, man) /usr/man/man[58]/*
 %attr(750,root,root) /etc/cron.daily/autorpm
+/usr/man/man[58]/*
 
 %changelog
 * Wed Jan 26 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
