@@ -39,8 +39,6 @@ interfejs.
 %setup -q
 %patch0 -p1
 
-%build
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/etc/cron.daily,%{_mandir}/man{5,8},%{_sbindir}} \
@@ -57,8 +55,7 @@ install %{SOURCE2}	$RPM_BUILD_ROOT%{_sysconfdir}/autorpm.d/pools/pld-updates
 
 sed  -e "s=/bin/bash=/bin/sh=" autorpm.cron > $RPM_BUILD_ROOT/etc/cron.daily/autorpm
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
-	README CHANGES CREDITS TODO
+gzip -9nf README CHANGES CREDITS TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
