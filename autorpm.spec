@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	RPM Auto-Installer or FTP Mirrorer
-Summary(pl):	Auto instalator i ftp mirror pakietów rpm
+Summary(pl):	Automatyczny instalator i mirror FTP pakietów rpm
 Name:		autorpm
 Version:	3.3.2
 Release:	0.1
@@ -29,8 +29,8 @@ a very nice, menu-driven Interactive-Install mode.
 %description -l pl
 AutoRPM jest programem, który mo¿e wykonywaæ dowoln± kombinacjê
 nastêpuj±cych czynno¶ci: mirrorowanie pakietów rpm z podanego adresu
-serwera ftp, aktualizowanie bazy zainstalowanych pakietów wzglêdem
-zawarto¶ci serwera ftp lub katalogu lokalnego. Autorpm jest do¶æ ³atwo
+serwera FTP, aktualizowanie bazy zainstalowanych pakietów wzglêdem
+zawarto¶ci serwera FTP lub katalogu lokalnego. Autorpm jest do¶æ ³atwo
 konfigurowalny i posiada do¶æ du¿e mo¿liwo¶ci. Mo¿na go u¿ywaæ w
 trybie wsadowym i interakcyjnym gdzie posiada do¶æ przyjemny
 interfejs.
