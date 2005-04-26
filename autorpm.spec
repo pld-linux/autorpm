@@ -2,12 +2,12 @@
 Summary:	RPM Auto-Installer or FTP Mirrorer
 Summary(pl):	Automatyczny instalator i mirror FTP pakietów rpm
 Name:		autorpm
-Version:	3.3.2
+Version:	3.3.3
 Release:	0.1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
-# Source0-md5:	c1c69f35c3655783f1071b5d855925f6
+# Source0-md5:	7d81dd57443223a184694378ab72b57b
 Source1:	%{name}-pld-updates.conf
 Source2:	%{name}-pld-updates
 Patch0:		%{name}-config.patch
