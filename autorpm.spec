@@ -3,7 +3,7 @@ Summary:	RPM Auto-Installer or FTP Mirrorer
 Summary(pl):	Automatyczny instalator i mirror FTP pakietów rpm
 Name:		autorpm
 Version:	3.3.3
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kaybee.org/pub/linux/%{name}-%{version}.tar.gz
@@ -15,6 +15,7 @@ URL:		http://www.kaybee.org/~kirk/html/linux.html
 BuildRequires:	rpm-perlprov
 Requires:	whiptail
 Requires:	/bin/rpm
+# any reason for whiptail being duplicate? should be mentioned here.
 Requires:	/usr/bin/whiptail
 Requires:	/bin/mail
 BuildArch:	noarch
