@@ -13,11 +13,11 @@ Source2:	%{name}-pld-updates
 Patch0:		%{name}-config.patch
 URL:		http://www.kaybee.org/~kirk/html/linux.html
 BuildRequires:	rpm-perlprov
-Requires:	whiptail
 Requires:	/bin/rpm
+Requires:	whiptail
 # any reason for whiptail being duplicate? should be mentioned here.
-Requires:	/usr/bin/whiptail
 Requires:	/bin/mail
+Requires:	/usr/bin/whiptail
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
