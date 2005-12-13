@@ -70,9 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/autorpm.d
 %dir %{_sysconfdir}/autorpm.d/pools
 %dir %{_sysconfdir}/autorpm.d/addons
-%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/autorpm.conf
-%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/pld-updates.conf
-%config(missingok) %verify(not mtime,md5,size) %{_sysconfdir}/autorpm.d/pools/pld-updates
+%config(missingok) %verify(not md5 mtime size) %{_sysconfdir}/autorpm.d/autorpm.conf
+%config(missingok) %verify(not md5 mtime size) %{_sysconfdir}/autorpm.d/pld-updates.conf
+%config(missingok) %verify(not md5 mtime size) %{_sysconfdir}/autorpm.d/pools/pld-updates
 
 %attr(755,root,root) %{_sbindir}/autorpm
 %attr(750,root,root) /etc/cron.daily/autorpm
