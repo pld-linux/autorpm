@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	RPM Auto-Installer or FTP Mirrorer
-Summary(pl.UTF-8):   Automatyczny instalator i mirror FTP pakietów rpm
+Summary(pl.UTF-8):	Automatyczny instalator i mirror FTP pakietów rpm
 Name:		autorpm
 Version:	3.3.3
 Release:	0.2
